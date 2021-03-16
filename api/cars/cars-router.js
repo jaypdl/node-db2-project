@@ -33,6 +33,26 @@ router.post('/', checkCarPayload, checkVinNumberUnique, checkVinNumberValid, asy
   }
 })
 
+// Stretch: [PUT] / (Edits car, returns edited car)
+router.put('/:id', checkCarId, checkCarPayload, checkVinNumberValid, async (req, res, next) => {
+  try {
+    const updated = await Car.update(req.params.id, req.body)
+    res.json(updated)
+  } catch (err) {
+    next(err)
+  }
+})
+
+// Stretch: [DELETE] /:id (Returns Deleted Car)
+router.delete('/:id', checkCarId, async (req, res, next) => {
+  try {
+    const deleted = await Car.deleteCar(req.params.id)
+    res.json(deleted)
+  } catch (err) {
+    next(err)
+  }
+})
+
 // Error Catching
 router.use((err, req, res, next) => { // eslint-disable-line
   res.status(500).json({
