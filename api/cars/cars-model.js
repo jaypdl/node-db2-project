@@ -4,8 +4,8 @@ const getAll = () => {
   return db('cars')
 }
 
-const getById = (car_id) => {
-  return db('cars').where('car_id', car_id).first()
+const getById = (id) => {
+  return db('cars').where('id', id).first()
 }
 
 const create = async (newCar) => {

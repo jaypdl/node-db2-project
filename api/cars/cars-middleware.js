@@ -3,9 +3,9 @@ const vinValidator = require('vin-validator')
 
 const checkCarId = async(req, res, next) => {
   try {
-    const idExists = await Car.getById(req.params.car_id)
+    const idExists = await Car.getById(req.params.id)
     if (!idExists) {
-      res.status(404).json({ message: `car with id ${req.params.car_id} is not found` })
+      res.status(404).json({ message: `car with id ${req.params.id} is not found` })
     } else {
       req.carInfo = idExists
       next()

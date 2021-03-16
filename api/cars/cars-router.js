@@ -19,7 +19,7 @@ router.get('/', async (req, res, next) => {
 })
 
 // [GET] /:id (Returns car with given id)
-router.get('/:car_id/', checkCarId,  (req, res) => {
+router.get('/:id/', checkCarId,  (req, res) => {
   res.json(req.carInfo)
 })
 
