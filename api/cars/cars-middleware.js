@@ -16,18 +16,6 @@ const checkCarId = async(req, res, next) => {
 }
 
 const checkCarPayload = (req, res, next) => {
- /*  try {
-    const { vin, make, model, mileage } = req.body
-    const valuesToCheck = [vin, make, model, mileage]
-    valuesToCheck.forEach(value => {
-      if (!value) {
-        res.status(400).json({ message: `${Object.keys({value}[0])} is missing` })
-        return
-      }
-    })
-  } catch (err) {
-    next(err)
-  } */
   try {
     const { vin, make, model, mileage } = req.body
     if (!vin) {
